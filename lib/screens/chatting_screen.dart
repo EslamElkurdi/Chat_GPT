@@ -49,6 +49,19 @@ class _ChatPage extends State<ChatPage> {
     }
   }
 
+  void sendUser(String Text) {
+    print(Text + "Controller");
+    ChatMessage message = ChatMessage(
+      text: Text,
+      sender: 'You',
+    );
+
+    setState(() {
+      _messages.insert(0, message);
+    });
+    _controller.clear();
+    sendMessage(Text);
+  }
 
   final TextEditingController _controller = TextEditingController();
   final List<ChatMessage> _messages = [];
